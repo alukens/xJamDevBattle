@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class NewBattleBehaviourScript : MonoBehaviour
+{
+    // Important Outside Scripts
+    private LittleDude ld;
+    private BattleInfo battleInfo;
+
+    void Start()
+    {
+        if (!ld)
+            ld = GetComponent<LittleDude>();
+
+        if (!battleInfo)
+            battleInfo = BattleInfo.instance.battleInfo.GetComponent<BattleInfo>();
+    }
+
+    void Update()
+    {
+    
+    }
+   
+}
