@@ -214,10 +214,11 @@ public class LittleDude : MonoBehaviour
     }
 
     // Sets or updates NavMeshAgent destination, triggering the calculation of a new path.
-    // You may also set the variable directly using LittleDude.navTarget
+    // Calling this instead of setting the navTarget directly will prevent your scripts from overwriting the tag / jail routine.
     public void SetDestination(Vector3 _pos)
     {
-        navTarget = _pos;
+        if (!tagged)
+            navTarget = _pos;
     }
 
     // *******************************************************************************************************************************
@@ -339,7 +340,6 @@ public class LittleDude : MonoBehaviour
     // 
     // Any direct calls to the methods below will result in immediate disqualification!
     // ************************************************************************************************************************************************
-
 
 
 
@@ -511,7 +511,7 @@ public class LittleDude : MonoBehaviour
     private IEnumerator FallOverRoutine()
     {
         animationOverride = true;
-        SetDestination(transform.position);
+        navTarget = transform.position;
         SetFallOver();
         FreezeRigidbody();
         animator.applyRootMotion = false;
