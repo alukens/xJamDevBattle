@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBattleBehaviourScript : MonoBehaviour
+public class YourScript : MonoBehaviour
 {
     // Important Outside Scripts
     private LittleDude ld;
